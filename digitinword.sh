@@ -1,3 +1,5 @@
+#IF ELSE 
+#PRINT IN WORD IN S-INGLE DIGIT NUMBER
 #!/bin/bash
 echo "Enter a Single Digit Number"
 read number
