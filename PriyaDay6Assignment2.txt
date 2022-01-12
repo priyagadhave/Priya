@@ -1,0 +1,136 @@
+		Repetition Practice Problems with while loop
+1.Write a program that takes a command-line argument n and prints a
+  table of the powers of 2 that are less than or equal to 2^n till 256 is
+  reached..
+
+Answer-#!/bin/bash
+echo "Enter a Number:"
+read number
+
+exp=2
+result=1
+while [  $result -le 256 ]
+do
+    echo  "power table of the $number is:$result"
+
+    result=$(($result*$exp))
+
+done
+
+
+2. Find the Magic Number
+   a. Ask the user to think of a number n between 1 to 100
+   b. Then check with the user if the number is less then n/2 or greater
+   c. Repeat till the Magic Number is reached..
+
+Answer-
+echo “Enter the limit:”
+read n
+echo “Enter the numbers”
+for(( i=0 ;i<n; i++ ))
+do
+read m
+a[i]=$m
+done
+for(( i=1; i<n; i++ ))
+do
+for(( j=0; j<n-i; j++))
+do
+if [ ${a[$j]} -gt ${a[$j+1]} ]
+then
+t=${a[$j]}
+a[$j]=${a[$j+1]}
+a[$j+1]=$t
+fi
+done
+done
+echo “Sorted array is”
+for(( i=0; i<n; i++ ))
+do
+echo “${a[$i]}”
+done
+echo “Enter the element to be searched :”
+read s
+l=0
+c=0
+u=$(($n-1))
+while [ $l -le $u ]
+do
+mid=$(((( $l+$u ))/2 ))
+if [ $s -eq ${a[$mid]} ]
+then
+c=1
+break
+elif [ $s -lt ${a[$mid]} ]
+then
+u=$(($mid-1))
+else
+l=$(($mid+1))
+fi
+done
+
+if [ $c -eq 1 ]
+
+then
+
+echo “Element found at position $(($mid+1))”
+
+else
+
+echo “Element not found”
+
+fi
+
+
+
+3.Extend the Flip Coin problem till either Heads or Tails wins 11 times.
+Answer-
+
+
+#!/bin/bash
+number=1
+while [ $number -le 11 ]
+do
+    echo  "Head"
+    ((number++))
+
+done
+
+4. Write a Program where a gambler starts with Rs 100 and places Re 1 bet
+   until he/she goes broke i.e. no more money to gamble or reaches the
+   goal of Rs 200. Keeps track of number of times won and number of bets
+   made.
+Answer-
+
+#!/bin/bash
+won=1
+numberOfbets=0
+numberOfwins=0
+numberOflosses=0
+money_have=100
+money_should_earn=200
+each_bet=20
+money_for_winner=20
+
+while [[  $money_have -ge $each_bet &&  $money_have -lt  $money_should_earn ]]
+do
+  ((numberOfbets++))
+   result=$((RANDOM%2))
+   if  [ $result -eq $won ]
+   then
+        money_have=$(($money_have+$each_bet))
+        ((numberOfwins++))
+   else
+       money_have=$(($money_have-$each_bet))
+       ((numberOflosses--))
+   fi
+    if [ $money_have -eq 0 ]
+     then
+         echo "player broke"
+    else
+          echo "player won"
+    fi
+
+
+
+

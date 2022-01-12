@@ -1,0 +1,93 @@
+                 Selection Practice Problems with case statement
+
+1.Read a single digit number and write the number in word using Case
+Answer-
+
+#!/bin/bash
+isFirstNumber=0
+isSecondNumber=1
+isThirdNumber=2
+randomSingleDigitNumber=$((RANDOM%3))
+case $randomSingleDigitNumber  in
+        $isFirstNumber) echo "ZERO"
+        ;;
+       $isSecondNumber) echo "FIRST"
+        ;;
+      *)  echo "SECOND"
+        ;;
+esac
+
+2.Read a Number and Display the week day (Sunday, Monday,...)
+Answer-
+#!/bin/bash
+echo  "Enter a number:"
+read number
+case $number in
+     1)  echo "SUNDAY"
+     ;;
+     2)  echo  "MONDAY"
+     ;;
+     3)  echo  "TUESDAY"
+     ;;
+     4)   echo "WEDNESDAY"
+     ;;
+     5)   echo "THURSDAY"
+     ;;
+     6)   echo "FRIDAY"
+     ;;
+     *)
+      echo "SATURDAY"
+esac
+
+3.Read a Number 1, 10, 100, 1000, etc and display unit, ten, hundred,...
+Answer-
+#!/bin/bash
+echo  "Enter a Number:"
+read number
+case $number in
+    1)  echo  "UNIT"
+    ;;
+    10)
+       echo  "TEN"
+    ;;
+    100)
+       echo "HUNDRED"
+    ;;
+    1000)
+      echo  "THOSAND"
+    ;;
+    10000)
+      echo  "TEN THOUSAND"
+    ;;
+esac
+
+4.Write a program that takes User Inputs and does Unit Conversion of
+  different Length units
+  1. Feet to Inch  3. Inch to Feet
+  2. Feet to Meter 4. Meter to Feet 
+Answer-
+
+#!/bin/bash
+read -p "Enter a length to convert units:"  input
+echo "1)feet to inch"
+echo "2)feet to meter"
+echo "3)inch to feet"
+echo "4)meter to feet"
+read option
+case "$option"  in
+
+1)output=$((input*12))
+  output="${output}  inches"
+  ;;
+2)output=`echo "scale=4;$input*0.3048"| bc` output="${output}meters"
+  ;;
+3)output=`echo "scale=4;$input*0.8033"| bc` output="${output}feet"
+  ;;
+4)output=`echo "scale=4;$input*3.28"| bc` output="${output}feet"
+  ;;
+*)echo invalid option
+
+esac
+echo $output
+
+

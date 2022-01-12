@@ -1,0 +1,55 @@
+                   Sequences Practice Problems
+
+1.Use Random Function (( RANDOM )) to get Single Digit
+Answer-
+#!/bin/bash
+randomCheck=$((RANDOM%2))
+echo "$randomCheck"
+
+2.Use Random to get Dice Number between 1 to 6
+Answer-
+#!/bin/bash
+randomCheck=$((RANDOM%7))
+echo "$randomCheck"
+
+3.Add two Random Dice Number and Print the Result
+
+#!/bin/bash
+randomNumber1=$((RANDOM%3))   // i'm taking the random numbers between 0 to 2 
+randomNumber2=$((RANDOM%3))
+result=$(($randomNumber1 + $randomNumber2 ))
+echo  $result
+
+4. Write a program that reads 5 Random 2 Digit values , then find their
+sum and the average
+
+Answer-#!/bin/bash
+read -p "Enter first  Number:"  a
+read -p "Enter second Number:"  b
+read -p "Enter third Number:"  c
+read -p "Enter fourth Number:"  d
+read -p "Enter fifth Number:"  e
+
+sum=$(( $a+$b+$c+$d+$e ))
+echo "Sum is: $sum"
+
+Average=$(( $sum/5 ))
+echo "Average is:$Average"
+
+5.Unit Conversion
+a. 1ft = 12 in then 42 in = ? ft
+Answer- #!/bin/bash
+        result=`echo "scale=2;42/12"|bc`
+b. Rectangular Plot of 60 feet x 40 feet in meters
+Answer-#!/bin/bash
+       result=`echo "40*60*0.3048"|bc`
+       echo $result "meters"
+c. Calculate area of 25 such plots in acres
+Answer-
+    #!/bin/bash
+    result=`echo "((60*40)*0.3048)*25*0.00024711"|bc`
+    echo $result  "acres"
+
+
+
+

@@ -1,0 +1,173 @@
+               Selection Practice Problems with if, elif and else
+
+1.Read a single digit number and write the number in word
+Answer-
+#!/bin/bash
+echo "Enter a Single Digit Number"
+read number
+
+if [ $number -eq 0 ]
+then
+echo "ZERO"
+
+elif [ $number -eq 1 ]
+then
+echo "ONE"
+
+elif [ $number -eq 2 ]
+then
+echo "Two"
+
+elif [ $number -eq 3 ]
+then
+echo "THREE"
+
+elif [ $number -eq 4 ]
+then
+echo "FOUR"
+
+elif [ $number -eq 5 ]
+then
+echo "FIVE"
+
+elif [ $number -eq 6 ]
+then
+echo "SIX"
+
+elif [ $number -eq 7 ]
+then
+echo "SEVEN"
+
+elif [ $number -eq 8 ]
+then
+echo "EIGHT"
+
+elif [ $number -eq 9 ]
+then
+echo "NINE"
+
+else
+    echo "Its not a single Digit number"
+fi
+
+2. Read a Number and Display the week day (Sunday, Monday,...)
+Answer-
+#!/bin/bash
+echo "Enter a number"
+read number
+if [ $number -eq 0 ]
+then
+   echo "SUNDAY"
+
+elif [ $number -eq 1 ]
+then
+   echo "MONDAY"
+
+elif [ $number -eq 2 ]
+then
+   echo "TUESDAY"
+
+elif [ $number -eq 3 ]
+then
+   echo "WEDNESDAY"
+
+elif [ $number -eq 4 ]
+then
+   echo "THURSDAY"
+
+elif [ $number -eq 5 ]
+then
+   echo "FRIDAY"
+
+elif [ $number -eq 6 ]
+then
+   echo "SATURDAY"
+else
+   echo "Not a valid number"
+fi
+
+3.Read a Number 1, 10, 100, 1000, etc and display unit, ten, hundred,...
+Answer-
+#!/bin/bash
+echo "Enter a Number:"
+read number
+if [ $number -eq 1 ]
+then
+  echo "UNIT"
+
+elif [ $number -eq 10 ]
+then
+  echo "TEN"
+
+elif [  $number -eq 100 ]
+then
+  echo "HUNDRED"
+
+elif [ $number -eq 1000 ]
+then
+  echo "THOUSAND"
+
+else
+  echo  "ITS NOT A VALID NUMBER"
+
+fi
+
+4. Enter 3 Numbers do following arithmetic operation and find the one that
+is maximum and minimum
+1. a + b * c  3. c + a / b
+2. a % b + c  4. a * b + c
+
+#!/bin/bash
+read -p "Enter a first number:"  a
+read -p "Enter a Second number:"  b
+read -p "Enter a third number:"  c
+
+result1=$(( $a+$b*$c ))
+echo $result1
+
+result2=$(( $a%$b+$c ))
+echo $result2
+
+result3=$(( $c+$a/$b ))
+echo $result3
+
+result4=$(( $a*$b+$c ))
+echo $result4
+
+maximum=$result1
+
+if  [  $result2 -gt $maximum ]
+then
+    maximum=$result2
+fi
+if [ $result3 -gt $maximum ]
+then
+    maximum=$result3
+fi
+
+if [ $result4  -gt $maximum ]
+then
+    maximum=$result4
+fi
+
+echo  "MAXIMUM VALUE OF A NUMBER IS: $maximum"
+
+minimum=$result1
+
+if [ $result2 -lt  $minimum ]
+then
+    minimum=$result2
+fi
+
+if [ $result3 -lt $minimum ]
+then
+   minimum=$result3
+fi
+
+if  [ $result4 -lt $minimum ]
+then
+  minimum=$result4
+fi
+  echo  "MANIMUM VALUE OF A NUMBER IS: $minimum"
+
+

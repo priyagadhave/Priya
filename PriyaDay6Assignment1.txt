@@ -1,0 +1,123 @@
+                     Repetition Practice Problems with for loop
+
+1.Write a program that takes a command-line argument n and prints a table of the
+  powers of 2 that are less than or equal to 2^n.
+
+Answer-
+#!/bin/bash
+echo "Enter a base number:"
+read base
+echo  "Enter a exponential number:"
+read exp
+power=1
+for (( counter=$exp; counter!=0; counter-- ))
+do
+    power=$(($power*$base))
+
+done
+echo $power
+
+2. Write a program that takes a command-line argument n and prints the nth harmonic
+   number.
+
+Answer-
+#!/bin/bash -x
+read -p "enter a number: " n
+harmonic=0
+for (( i=1; i<=n; i++))
+do
+harmonic=`echo "scale=2;$harmonic+(1/$i)" | bc`
+done
+
+3.Write a program that takes a input and determines if the number is a prime.
+Answer-
+
+#!/bin/bash
+echo "Enter a number"
+read number
+result=1
+
+for ((  counter=2; counter<$number; counter++ ))
+do
+    if  [  $(($number%$counter))  -eq 0 ]
+    then
+        result=$(($result+1))
+    fi
+done
+if [  $result -eq 1 ]
+then
+  echo "its a prime number"
+else
+  echo "its not a prime number"
+fi
+
+4.Extend the program to take a range of number as input and output the Prime
+  Numbers in that range.
+Answer-
+
+#!/bin/bash
+echo  "Enter a first number:"
+read number1
+echo  "Enter a second number:"
+read number2
+
+for (( counter1=number1;  counter1<number2; counter1++ ))
+do
+    result=1
+   for (( counter2=2; counter2<counter1; counter2++ ))
+   do
+     if [ $(($counter1%$counter2))  -eq 0 ]
+     then
+         result=$(($result+1))
+     fi
+    done
+
+     if [ $result -eq 1 ]
+        then
+        echo "Prime numbers between range is :$counter1"
+     fi
+done
+
+5.Write a program that computes a factorial of a number taken as input.5
+  Factorial – 5! = 1 * 2 * 3 * 4 * 5
+Answer-
+
+#!/bin/bash
+echo "Enter a number:"
+read number1
+result=1
+
+for (( number=1; number<=$number1; number++ ))
+do
+
+    result=$(( $result*$number ))
+done
+
+echo " factorial of a  number is:$result"
+
+6.Write a program to compute Factors of a number N using prime factorization method.
+  Logic -> Traverse till i*i <= N instead of i <= N for efficiency.
+  O/P -> Print the prime factors of number N.
+
+Answer-
+
+#!/bin/bash
+echo "Enter a Number:"
+read number
+
+for (( counter=2;  counter<$number;  counter++ ))
+do
+
+   while [  $(($number%$counter)) -eq 0 ]
+   do
+
+      echo "$counter "
+      number=$(($number/$counter))
+      done
+done
+
+if [  $number -gt 2 ]
+then
+      echo "$number"
+fi
+

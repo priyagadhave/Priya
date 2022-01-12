@@ -1,0 +1,118 @@
+
+                Selection Practice Problems with if & else
+
+1.Write a program that reads 5 Random 3 Digit values and then outputs the minimum
+and the maximum value
+
+Answer-
+#!/bin/bash
+read -p "Enter a 1st number:"  a
+maximum=$a
+minimum=$a
+read -p "Enter a 2nd number:"  b
+if [ $b -gt $maximum ]
+then
+    maximum=$b
+fi
+
+if [ $b -lt  $minimum ]
+then
+    minimum=$b
+fi
+
+read -p "Enter third number:" c
+
+if [  $c -gt $maximum ]
+then
+  maximum=$c
+fi
+
+read -p "Enter the fourth Number:"  d
+if [ $c -lt  $minimum ]
+then
+    minimum=$c
+fi
+if [  $d -gt $maximum ]
+then
+  maximum=$d
+fi
+
+if [ $d -lt  $minimum ]
+then
+    minimum=$d
+fi
+
+read -p "Enter the fifth number:"  e
+if [  $e -gt $maximum ]
+then
+  maximum=$e
+fi
+
+if [ $e -lt  $minimum ]
+then
+    minimum=$e
+fi
+
+echo "Maximum:"$maximum
+echo  "Minimum:"$minimum
+
+2.Write a program that takes day and month from the command line and prints true if
+  day of month is between March 20 and June 20, false otherwise.
+
+Answer-#!/bin/bash
+month=`date +%d-%m-%y |  awk -F '-' '{print $2}'`
+echo $month
+
+day= date +%d-%m%y  |  awk -F '-' '{print $1}'
+echo $day
+
+if [[ ($month -ge 3 ) && ( $month -lt  6 ) ]]
+then
+   if [ $month -eq 3 ]
+   then
+      if [ $day -gt 20 ]
+       then
+       echo true
+       else
+       echo false
+      fi
+    fi
+   if  [  $month -eq 6 ]
+   then
+    if [ $day -le 20 ]
+    then
+      echo true
+    else
+     echo false
+    fi
+  fi
+
+3.Write a program that takes a year as input and outputs the Year is a Leap Year or not  a Leap Year. A Leap Year checks for 4 Digit Number, Divisible by 4 and not 100 unless divisible by 400.
+Answer-
+
+#!/bin/bash
+read -p "Enter the year:"  year
+
+if [ `expr $year % 100` -eq 0 -a `expr $year % 400` -eq 0 ]
+then
+   echo "$year is a leap year "
+elif [ `expr $year % 100` -ne 0 -a `expr $year % 4` -eq 0 ]
+then
+  echo "$year is a leap year"
+else
+   echo "its not a leap year"
+fi
+
+4.Write a program to simulate a coin flip and print out "Heads" or "Tails" accordingly.
+Answer-
+
+#!/bin/bash
+headOrtail=$((RANDOM%2))
+if [ $headOrtail  -eq 0 ]
+then
+   echo "head"
+else
+   echo "tail"
+fi
+
+
